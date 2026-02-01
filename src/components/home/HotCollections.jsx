@@ -46,7 +46,6 @@ const HotCollections = () => {
 
     loadCollections();
   }, []);
-  console.log("loading:", loading, "collections length:", collections.length);
 
   return (
     <section id="section-collections" className="no-bottom">
