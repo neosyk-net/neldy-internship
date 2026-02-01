@@ -38,7 +38,6 @@ const HotCollections = () => {
         await new Promise((r) => setTimeout(r, 1500));
         setCollections(data);
       } catch (err) {
-        console.error("Failed to load hot collections", err);
       } finally {
         setLoading(false);
       }
