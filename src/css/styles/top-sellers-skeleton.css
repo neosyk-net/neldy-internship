@@ -1,0 +1,38 @@
+/* ===== Top Sellers Skeleton ===== */
+.ts-skel {
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+  animation: ts-shimmer 1.2s infinite;
+}
+
+@keyframes ts-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.ts-skel-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+
+.ts-skel-name {
+  width: 140px;
+  height: 14px;
+  margin-top: 6px;
+}
+
+.ts-skel-sales {
+  width: 80px;
+  height: 12px;
+  margin-top: 8px;
+}
