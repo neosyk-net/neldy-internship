@@ -1,0 +1,60 @@
+.author-skel {
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+  border-radius: 6px;
+}
+
+.author-skel-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.author-skel-name {
+  width: 180px;
+  height: 20px;
+  margin-bottom: 8px;
+}
+
+.author-skel-username {
+  width: 120px;
+  height: 14px;
+  margin-bottom: 8px;
+}
+
+.author-skel-wallet {
+  width: 260px;
+  height: 14px;
+}
+
+.author-skel-followers {
+  width: 120px;
+  height: 16px;
+  margin-bottom: 12px;
+}
+
+
+
+.author-skel-follow-btn {
+  width: 120px;       
+  height: 42px;        
+  border-radius: 10px; 
+  margin-top: 8px;
+}
+
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
