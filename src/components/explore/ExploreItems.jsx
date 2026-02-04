@@ -9,7 +9,7 @@ const ExploreItems = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const [filter, setFilter] = useState(""); 
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     let ignore = false;
@@ -21,7 +21,6 @@ const ExploreItems = () => {
 
         await new Promise((r) => setTimeout(r, 1500));
 
-       
         const data = await getExploreItems(filter);
 
         if (ignore) return;
@@ -30,7 +29,8 @@ const ExploreItems = () => {
         const list = Array.isArray(results) ? results : [];
 
         const normalized = list.map((x) => ({
-          id: x.id,
+          nftId: x.nftId ?? x.id ?? x.tokenId ?? x.token_id,
+          id: x.id ?? x.nftId ?? x.tokenId ?? x.token_id, // optional, for React keys
           title: x.title ?? x.name,
           price: x.price,
           likes: x.likes ?? 0,
@@ -41,7 +41,7 @@ const ExploreItems = () => {
         }));
 
         setItems(normalized);
-        setVisibleCount(8); 
+        setVisibleCount(8);
       } catch (err) {
         if (ignore) return;
         console.error("Explore API error:", err);
@@ -56,7 +56,7 @@ const ExploreItems = () => {
     return () => {
       ignore = true;
     };
-  }, [filter]); 
+  }, [filter]);
 
   return (
     <>
@@ -64,7 +64,7 @@ const ExploreItems = () => {
         <select
           id="filter-items"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)} 
+          onChange={(e) => setFilter(e.target.value)}
         >
           <option value="">Default</option>
           <option value="price_low_to_high">Price, Low to High</option>

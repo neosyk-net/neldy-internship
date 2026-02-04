@@ -6,7 +6,6 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import NftCard from "../NftCard";
 import NftCardSkeleton from "../NftCardSkeleton";
 
-
 const NewItems = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +18,9 @@ const NewItems = () => {
         await new Promise((r) => setTimeout(r, 1500));
         const data = await getNewItems();
 
-        const list = Array.isArray(data) ? data : (data?.data ?? data?.items ?? []);
+        const list = Array.isArray(data)
+          ? data
+          : (data?.data ?? data?.items ?? []);
         setItems(list);
       } catch (err) {
         console.log("❌ getNewItems error:", err);
@@ -35,13 +36,21 @@ const NewItems = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>New Items</h2>
-              <div className="small-border bg-color-2"></div>
+              <h2 data-aos="fade-up" data-aos-duration="3000">
+                New Items
+              </h2>
+              <div
+                className="small-border bg-color-2"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              ></div>
             </div>
           </div>
 
           <div className="col-lg-12">
             <OwlCarousel
+              data-aos="fade-up"
+              data-aos-duration="3000"
               key={loading ? "loading" : `loaded-${items.length}`}
               className="owl-theme"
               loop={!loading}
@@ -56,11 +65,13 @@ const NewItems = () => {
                 1100: { items: 4, slideBy: 1 },
               }}
             >
-              {(loading ? new Array(4).fill(null) : items).map((item, index) => (
-                <div className="item" key={item?.id ?? `skel-${index}`}>
-                  {item ? <NftCard item={item} /> : <NftCardSkeleton />}
-                </div>
-              ))}
+              {(loading ? new Array(4).fill(null) : items).map(
+                (item, index) => (
+                  <div className="item" key={item?.id ?? `skel-${index}`}>
+                    {item ? <NftCard item={item} /> : <NftCardSkeleton />}
+                  </div>
+                ),
+              )}
             </OwlCarousel>
           </div>
         </div>
