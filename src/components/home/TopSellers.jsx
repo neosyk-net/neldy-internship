@@ -28,7 +28,7 @@ const TopSellers = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Top Sellers</h2>
+              <h2 data-aos="fadeUp">Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
@@ -36,7 +36,12 @@ const TopSellers = () => {
             <ol className="author_list">
               {(loading ? new Array(12).fill(null) : sellers).map(
                 (seller, index) => (
-                  <li key={seller?.id ?? `skel-${index}`}>
+                  <li
+                    key={seller?.id ?? `skel-${index}`}
+                    data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
+                  >
                     {seller ? (
                       <>
                         <div className="author_list_pp">

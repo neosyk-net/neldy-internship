@@ -7,7 +7,12 @@ const NftCard = ({ item }) => {
   if (!item) return null;
 
   return (
-    <div className="nft__item">
+    <div
+      className="nft__item"
+      data-aos="fadeUp"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+    >
       <div className="author_list_pp">
         <Link
           to={`/author/${item.authorId}` || "#"}

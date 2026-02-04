@@ -52,13 +52,21 @@ const HotCollections = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="text-center">
-              <h2>Hot Collections</h2>
-              <div className="small-border bg-color-2"></div>
+              <h2 data-aos="fade-up" data-aos-duration="3000">
+                Hot Collections
+              </h2>
+              <div
+                className="small-border bg-color-2"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              ></div>
             </div>
           </div>
 
           <div className="col-lg-12">
             <OwlCarousel
+              data-aos="fade-up"
+              data-aos-duration="3000"
               key={loading ? "loading" : `loaded-${collections.length}`}
               className="owl-theme"
               loop={!loading}
@@ -80,7 +88,7 @@ const HotCollections = () => {
                   ))
                 : collections.slice(0, 6).map((item, index) => (
                     <div key={item.nftId ?? index}>
-                      <div className="nft_coll">
+                      <div>
                         <div className="nft_wrap">
                           <Link to={`/item-details/${item.nftId}`}>
                             <img
